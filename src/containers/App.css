@@ -18,7 +18,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   flex-basis: 50%;
-  background: #e2d810;
+  background: #fbfbfb;
   height: 100vh;
   min-height: 600px;
   justify-content: center;
@@ -45,15 +45,15 @@ input::-webkit-inner-spin-button {
   justify-content: center;
   align-items: left;
   padding: 3rem;
-  background-color: #d9138a;
+  background-color: #2e2d2e;
 }
 
 footer {
-  background-color: #12a4d9;
+  background-color: #2e2d2e;
 }
 
 .footer-link {
-  color: #e2d810;
+  color: #fbfbfb;
   text-decoration: none;
   position: relative;
 }
@@ -64,7 +64,7 @@ footer {
   bottom: -0.2em;
   left: 0;
   width: 0;
-  background: #e2d810;
+  background: #fbfbfb;
   transition: width .2s ease-in-out;
   height: 2px;
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 export type HistoryCtxInterface = {
     name: string, 
-    age: number, 
+    age: string, 
     gender: string,
     sample:number
 }
