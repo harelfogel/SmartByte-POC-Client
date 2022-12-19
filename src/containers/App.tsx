@@ -55,7 +55,6 @@ const App = () => {
                     // console.log('AgeData', ageData, theAge);
                     const post = { data: theRule };
                     const resp2 = await axios.post(serverLink, post);
-                    console.log(resp2);
                     if (resp2.status === 200) {
                         setGender("Rules is been created!");
                         setAge("Activated");
@@ -95,7 +94,7 @@ const App = () => {
                 }
             });
         // eslint-disable-next-line
-    }, [theRule, theAge, theGender]);
+    }, [theRule]);
 
     return (
         <HistoryContext.Provider value={history}>
