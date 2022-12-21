@@ -17,7 +17,7 @@ const History = () => {
                     
                     history.map((item, i) => {
                         return(
-                            <HistoryBox key={i} namaNya={item.name} samples={item.sample} umurNya={item.age} jkNya={item.gender} />
+                            <HistoryBox key={i} namaNya={item.name} jkNya={item.status} />
                         );
                     })
                 }

@@ -9,10 +9,8 @@ import './App.css';
 
 const App = () => {
     const [theRule, setRule] = useState<string>('');
-    const [theAge, setAge] = useState<string>('');
-    const [theSamples, setSamples] = useState<number>();
+    const [theStatus, setStatus] = useState<string>('');
     const [history, setHistory] = useState<Array<HistoryCtxInterface>>([]);
-    const [theGender, setGender] = useState<string>();
     const [inputTxt, setInput] = useState<string>('');
     const [isLoading, setLoading] = useState<boolean>(false);
 
@@ -29,16 +27,12 @@ const App = () => {
             setLoading(true);
             setRule(inputTxt);
             setInput("");
-            setAge("");
-            setGender(undefined);
-            setSamples(undefined);
+            setStatus("");
         }
     }
 
     const setError = () => {
-        setGender("Error! Cannot create rule");
-        setAge("Not activated");
-        setSamples(0);
+        setStatus("Not activated");
     }
 
     useEffect(() => {
@@ -47,24 +41,15 @@ const App = () => {
             try {
                 if (theRule !== "") {
                     let serverLink = `${process.env.REACT_APP_SERVER_URL}`;
-                    //let theGenderLink = `https://gender-api.com/get?name=${theRule}&key=McGNFcCwzMWx2EtflRhRRRH6Tzv2MnflsSEL`;
-
-                    // const resp1 = await fetch(theAgeLink);
-                    // const ageData = await resp1.json();
-                    // setAge(ageData.age);
-                    // console.log('AgeData', ageData, theAge);
                     const post = { data: theRule };
                     const resp2 = await axios.post(serverLink, post);
                     if (resp2.status === 200) {
-                        setGender("Rules is been created!");
-                        setAge("Activated");
-                        setSamples(0);
+                        setStatus("Activated");
                     } else {
                         setError();
                     }
 
 
-                    // console.log('GenderData', genderData, theGender);
                 }
             } catch (err) {
                 console.log(err);
@@ -81,11 +66,9 @@ const App = () => {
                     const currentHistory = history.slice();
                     const newHistory: HistoryCtxInterface = {
                         name: theRule,
-                        age: theAge,
-                        gender: theGender!,
-                        sample: theSamples!
+                        status: theStatus,
                     }
-                    if (theAge != null && theGender != null) currentHistory.push(newHistory);
+                    if (theStatus != null) currentHistory.push(newHistory);
                     setHistory(currentHistory);
 
                     // console.log('New History', newHistory);
@@ -109,7 +92,7 @@ const App = () => {
                         value={inputTxt}
                         onChange={onlyAllowCharAndMakeProperCase.bind(this)}
                     />
-                    {<NameFact nama={theRule} umur={theAge} jk={theGender!} samples={theSamples!} isLoading={isLoading} />}
+                    {<NameFact nama={theRule} umur={theStatus} isLoading={isLoading} />}
                 </div>
             </div>
         </HistoryContext.Provider>

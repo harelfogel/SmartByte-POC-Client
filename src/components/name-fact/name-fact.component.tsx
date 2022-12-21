@@ -6,12 +6,10 @@ import './name-fact.styles.scss';
 type NameFactProps = {
     nama: string,
     umur: string,
-    jk: string,
-    samples: number,
     isLoading: boolean
 }
 
-const NameFact = ({ nama, umur, jk,samples, isLoading }: NameFactProps) => {
+const NameFact = ({ nama, umur,isLoading }: NameFactProps) => {
     return (
         (nama === "") ?
         <div></div> :
@@ -22,10 +20,9 @@ const NameFact = ({ nama, umur, jk,samples, isLoading }: NameFactProps) => {
                 <div>
                     {/* <p className="f6 f-subheadline-l fw6 mv3 nama">{nama}</p> */}
                     {
-                        (jk === null || umur === null || samples===null) ?
+                        (umur === null) ?
                         <p className="f6 fw4">Sorry, data not found.</p> :
                         <div>
-                            <p className="f6 fw4"><b>Rule:</b>{jk}.</p>
                             <p className="f6 fw4"><b>Status:</b>{umur}</p>
 
                         </div>
